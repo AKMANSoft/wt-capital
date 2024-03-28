@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     <title> WT Capital</title>
 </head>
 <body>
@@ -128,6 +130,7 @@
             </svg>
         </div>
         </div>
+        <div style="margin-top: -18%; z-index: 9;">
         <div class="img-section">
             <div class="flex images">
                 <img src="./Images/galleryImg1.jpg" alt="">
@@ -141,6 +144,7 @@
         <div class="flex images">
             <img src="./Images/galleryImg5.jpg" alt="">
             <img src="./Images/galleryImg6.jpg" alt="">
+        </div>
         </div>
     </section>
     <section class="section">
@@ -209,15 +213,271 @@
             </thead>
         </table>
         <div class="map">
-            <div>
+            <div style="width: 50%;">
                 <p>Map view (Zoomed out)</p>
                 <img src="/Images/mapzoomout.jpg" alt="">
             </div>
-            <div>
+            <div style="width: 50%;">
                 <p>Map view (Zoomed in)</p>
                 <img src="/Images/mapzoom.jpg" alt="">
             </div>
         </div>
     </section>
+    <section class="section">
+        <div class="hero-div">
+            <img src="/Images/dark-logo.svg" alt="">
+            <div>
+                <span>Property Report</span>
+                <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+            </div>
+        </div>
+        <div style="margin-top: 100px;">
+            <p style="font-size: 50px; color: #020302;">Median Sale Price</p>
+            <canvas id="myChart" style="width: 100%; margin-top: 69px;"></canvas>
+        </div>
+        <ul class="chartContent">
+            <li>The provided data indicates a fluctuating trend in the median property sale prices for a Melbourne suburb over a five-year span. Between March 2019 and February 2020, the median sale price was $403,750, which was followed by a peak of $410,000 from March 2020 to February 2021, suggesting a strong market despite global economic uncertainties during that period, possibly due to lower interest rates or government incentives.</li>
+            <li>However, prices dipped the following year to $371,500 between March 2021 and February 2022, possibly reflecting adjustments in the market caused by economic stresses or a change in buyer behaviors.</li>
+            <li>A moderate recovery is observed from March 2022 to February 2023, with a median sale price of $390,000, indicating some return of buyer confidence or constrained supply. Remarkably, there is a slight downward trend in the last reported period, where the median price decreased to $380,000 between March 2023 and February 2024.</li>
+            <li>The overall trend suggests a market that experienced a peak followed by volatility with mild recovery, and the latest year reflects a downturn. This might be influenced by broader economic factors, changes in the housing demand and supply dynamics, interest rates, or local market conditions in the suburb.</li>
+        </ul>
+    </section>
+    <section class="section">
+        <div class="hero-div">
+            <img src="/Images/dark-logo.svg" alt="">
+            <div>
+                <span>Property Report</span>
+                <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+            </div>
+        </div>
+        <div style="margin-top: 100px;">
+            <p style="font-size: 50px; color: #020302;">Median Rental Price</p>
+            <canvas id="medianRentalPriceChart" style="width: 100%; margin-top: 69px;"></canvas>
+        </div>
+        <ul class="chartContent">
+            <li>The provided data for median rental prices in a Melbourne suburb over a span of five years shows a trend of fluctuating rental costs with significant variances. Between March 2019 and February 2020, the median rental price was $450.</li>
+            <li>However, the following year marked a noteworthy decline to $351, which could be attributed to the economic impact of the COVID-19 pandemic on the housing market. From there, we see a sharp increase to $330 (Mar 2021-Feb 2022), which seems counterintuitive given the previous drop until we recognize the potential for a typographical error: the number should likely represent an increase given the context of subsequent data; it would be logical if this figure were higher than $351 to reflect recovery growth.</li>
+            <li>Moving onward, the median price jumps to $435 in the subsequent period (Mar 2022-Feb 2023), suggesting a substantial market recovery and possibly increased demand. The latest data for Mar 2023 - Feb 2024 points to a continuing upward trend with the median price reaching $500, solidifying a recovery and growth trend in the rental market and potentially reflecting broader economic trends, inflation, or a housing supply shortage.</li>
+            
+        </ul>
+    </section>
+    <section class="section">
+        <div class="hero-div">
+            <img src="/Images/dark-logo.svg" alt="">
+            <div>
+                <span>Property Report</span>
+                <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 100px;">
+            <p style="font-size: 50px; color: #020302;">Supply</p>
+            <p style="font-size: 18px;">Short text about how it is calculated</p>
+        </div>
+        <div style="margin-top: 40px;">
+            <canvas id="supply" style="width: 100%;"></canvas>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 136px;">
+            <p style="font-size: 50px; color: #020302;">Demand</p>
+            <p style="font-size: 18px;">Short text about how it is calculated</p>
+        </div>
+        <div style="margin: 40px 0 500px 0;">
+            <canvas id="Demand" style="width: 100%;"></canvas>
+        </div>
+    </section>
+    <section class="section">
+        <div class="hero-div">
+            <img src="/Images/dark-logo.svg" alt="">
+            <div>
+                <span>Property Report</span>
+                <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+            </div>
+        </div>
+        <div style=" margin-top: 100px;">
+            <p style="font-size: 50px; color: #020302;">Median Rental Yield</p>
+            <p style="font-size: 18px;">Text about how rental yield is calculated + definition </p>
+        </div>
+        <div>
+            <canvas id="Doughnut" style="width: 790px;margin: 0 auto;">
+            </canvas>
+        </div>
+        <div style=" margin-left: 50%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="178" height="219" viewBox="0 0 178 219" fill="none">
+            <path d="M0.517218 204.678L177.594 0.762316L17.3908 218.096L0.517218 204.678Z" fill="#19271F"/>
+            </svg>
+            </div>
+        </section>
+        <section class="section">
+            <div class="hero-div">
+                <img src="/Images/dark-logo.svg" alt="">
+                <div>
+                    <span>Property Report</span>
+                    <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+                </div>
+            </div>
+            <div>
+                <p class="heading">Price Growth in Melbourne Suburb</p>
+                <ul>
+                    <li>With the City of Melbourne’s property market experiencing a significant upturn in the latter half of 2023, establishing itself firmly as one of Australia’s most robust markets, this investment property stands as a logical choice for the discerning buyer.</li>
+                    <li>The inclusion of Melton in the city’s borders has not only made Melbourne Australia’s largest city but also contributed to its population growth. This, coupled with a resilient performance in dwelling values during challenging times, signals a market with strong recovery and growth potential.</li>
+                    <li>The noteworthy 6% long-term growth in prestigious South Yarra adds to the appeal of the investment. Strategic infrastructure projects worth billions, such as the Suburban Rail Loop and the North East Link, further enhance the allure, promising substantial economic benefits and job creation. The shift towards high-density living, with 86% of homes in Melbourne being units and townhouses, meets the modern demands for affordability and lifestyle, making this property an investment that is both prudent and promising in a city that is a leading growth market.</li>
+                </ul>
+            </div>
+            <div class="flex growthImg">
+                <img src="./Images/galleryImg5.jpg" alt="" width="100%">
+                <img src="./Images/galleryImg6.jpg" alt="" width="100%">
+            </div>
+        </section>
+        <section class="section">
+            <div class="hero-div">
+                <img src="/Images/dark-logo.svg" alt="">
+                <div>
+                    <span>Property Report</span>
+                    <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+                </div>
+            </div>
+            <div>
+                <p class="heading">Rental Returns and Vacancy Rates</p>
+                <ul>
+                    <li>In the heart of Melbourne’s thriving metropolis lies a golden opportunity for the astute investor. Recent data underscores a compelling narrative: the City of Melbourne is experiencing a robust growth in rental demand, evidenced by a staggering 19% increase in house rents and a 12% uptick for units in just the past year.</li>
+                    <li>Vacancy rates, once bloated to 11% during the height of the pandemic, have now contracted to a snug range between 1% and 3%, signaling a market ripe with potential for high occupancy. The most lucrative yields are found in the unit market, with Carlton and Melbourne CBD delivering an impressive 7.3% and 7.2% respectively, dwarfing the highest house market yield of 3.1% in Kensington.</li>
+                    <li>This property is not merely a residence; it’s a strategic investment in one of the few locales where buying trumps renting, promising both immediate yield returns and long-term capital growth. Seize the moment to secure a piece of Melbourne’s coveted real estate landscape.</li>
+                </ul>
+            </div>
+            <div class="flex growthImg">
+                <img src="./Images/galleryImg5.jpg" alt="" width="100%">
+                <img src="./Images/galleryImg6.jpg" alt="" width="100%">
+            </div>
+        </section>
+        <section class="section">
+            <div class="hero-div">
+                <img src="/Images/dark-logo.svg" alt="">
+                <div>
+                    <span>Property Report</span>
+                    <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+                </div>
+            </div>
+            <div>
+                <p class="heading">Suburb Profiles</p>
+                <ul>
+                    <li>In the heart of one of Australia’s most vibrant cities, the City of Melbourne stands as a beacon of growth and opportunity. With a population set to double by 2041 and a demographic that’s young, affluent, and highly educated, this is an investment you cannot overlook.</li>
+                    <li>Boasting a resilient economy bouncing back to a forecasted $74 billion in 2024, the area is a hotbed for professionals earning above-average incomes. The focus on high-density living, with units and townhouses becoming the preferred choice, aligns with modern lifestyle demands and paves the way for savvy investment.</li>
+                    <li>Infrastructure projects worth billions promise a surge in job opportunities and further economic uplift. The property market is ripe for growth, with Melbourne units experiencing a 2.9% increase in value over the past year, and suburbs such as Carlton, Melbourne CBD, and South Yarra primed for future price growth. This is your chance to secure a stake in a world-class city that is not just a place to live but a place to thrive</li>
+                </ul>
+            </div>
+            <div class="flex growthImg">
+                <img src="./Images/galleryImg5.jpg" alt="" width="100%">
+                <img src="./Images/galleryImg6.jpg" alt="" width="100%">
+            </div>
+        </section>
+        <section class="section">
+            <div class="hero-div">
+                <img src="/Images/dark-logo.svg" alt="">
+                <div>
+                    <span>Property Report</span>
+                    <span class="header-text">UNIT 2901, 35 SPRING STREET, MELBOURNE VIC 3000</span>
+                </div>
+            </div>
+            <div>
+                <p class="heading">Council Highlights</p>
+                <div class="flexIcons ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M17.5 26.25C17.5 27.2389 17.2068 28.2056 16.6574 29.0279C16.1079 29.8501 15.3271 30.491 14.4134 30.8694C13.4998 31.2478 12.4945 31.3469 11.5246 31.1539C10.5546 30.961 9.66373 30.4848 8.96447 29.7855C8.26521 29.0863 7.789 28.1954 7.59608 27.2255C7.40315 26.2555 7.50217 25.2502 7.8806 24.3366C8.25904 23.423 8.89991 22.6421 9.72215 22.0927C10.5444 21.5432 11.5111 21.25 12.5 21.25C13.8261 21.25 15.0979 21.7768 16.0355 22.7145C16.9732 23.6522 17.5 24.9239 17.5 26.25ZM12.5 5C11.5111 5 10.5444 5.29325 9.72215 5.84265C8.89991 6.39206 8.25904 7.17295 7.8806 8.08659C7.50217 9.00022 7.40315 10.0055 7.59608 10.9755C7.789 11.9454 8.26521 12.8363 8.96447 13.5355C9.66373 14.2348 10.5546 14.711 11.5246 14.9039C12.4945 15.0969 13.4998 14.9978 14.4134 14.6194C15.3271 14.241 16.1079 13.6001 16.6574 12.7779C17.2068 11.9556 17.5 10.9889 17.5 10C17.5 8.67392 16.9732 7.40215 16.0355 6.46447C15.0979 5.52679 13.8261 5 12.5 5ZM27.5 21.25C26.5111 21.25 25.5444 21.5432 24.7222 22.0927C23.8999 22.6421 23.259 23.423 22.8806 24.3366C22.5022 25.2502 22.4031 26.2555 22.5961 27.2255C22.789 28.1954 23.2652 29.0863 23.9645 29.7855C24.6637 30.4848 25.5546 30.961 26.5246 31.1539C27.4945 31.3469 28.4998 31.2478 29.4134 30.8694C30.327 30.491 31.1079 29.8501 31.6574 29.0279C32.2068 28.2056 32.5 27.2389 32.5 26.25C32.5 24.9239 31.9732 23.6522 31.0355 22.7145C30.0979 21.7768 28.8261 21.25 27.5 21.25ZM27.5 15C28.4889 15 29.4556 14.7068 30.2779 14.1574C31.1001 13.6079 31.741 12.8271 32.1194 11.9134C32.4978 10.9998 32.5969 9.99446 32.4039 9.02455C32.211 8.05465 31.7348 7.16373 31.0355 6.46447C30.3363 5.76521 29.4454 5.289 28.4755 5.09608C27.5055 4.90315 26.5002 5.00217 25.5866 5.3806C24.673 5.75904 23.8921 6.39991 23.3427 7.22215C22.7932 8.0444 22.5 9.0111 22.5 10C22.5 11.3261 23.0268 12.5979 23.9645 13.5355C24.9022 14.4732 26.1739 15 27.5 15Z" fill="#020302"/>
+                            <path d="M4.25 19.7498C4.38132 19.8483 4.53076 19.92 4.68977 19.9607C4.84879 20.0015 5.01427 20.0105 5.17678 19.9873C5.33928 19.964 5.49562 19.9091 5.63687 19.8254C5.77812 19.7418 5.90151 19.6311 6 19.4998C6.75682 18.4907 7.73819 17.6717 8.86639 17.1076C9.99459 16.5435 11.2386 16.2498 12.5 16.2498C13.7614 16.2498 15.0054 16.5435 16.1336 17.1076C17.2618 17.6717 18.2432 18.4907 19 19.4998C19.1991 19.7648 19.4954 19.9398 19.8236 19.9864C20.1517 20.033 20.485 19.9473 20.75 19.7483C20.8445 19.678 20.9282 19.5943 20.9984 19.4998C21.7553 18.4907 22.7366 17.6717 23.8648 17.1076C24.993 16.5435 26.2371 16.2498 27.4984 16.2498C28.7598 16.2498 30.0038 16.5435 31.132 17.1076C32.2602 17.6717 33.2416 18.4907 33.9984 19.4998C34.1976 19.765 34.4939 19.9403 34.8222 19.987C35.1505 20.0338 35.484 19.9482 35.7492 19.749C36.0144 19.5499 36.1897 19.2536 36.2364 18.9253C36.2832 18.5969 36.1976 18.2635 35.9984 17.9983C34.892 16.5149 33.4165 15.3471 31.7188 14.6108C32.6495 13.761 33.3016 12.6497 33.5895 11.4226C33.8773 10.1956 33.7875 8.91023 33.3318 7.73517C32.8761 6.56011 32.0757 5.55029 31.0358 4.83822C29.9959 4.12615 28.765 3.74512 27.5047 3.74512C26.2444 3.74512 25.0135 4.12615 23.9736 4.83822C22.9336 5.55029 22.1333 6.56011 21.6776 7.73517C21.2219 8.91023 21.132 10.1956 21.4199 11.4226C21.7078 12.6497 22.3599 13.761 23.2906 14.6108C22.0648 15.1408 20.9511 15.8997 20.0094 16.8467C19.0676 15.8997 17.954 15.1408 16.7281 14.6108C17.6589 13.761 18.311 12.6497 18.5989 11.4226C18.8867 10.1956 18.7969 8.91023 18.3412 7.73517C17.8854 6.56011 17.0851 5.55029 16.0452 4.83822C15.0053 4.12615 13.7744 3.74512 12.5141 3.74512C11.2537 3.74512 10.0228 4.12615 8.98293 4.83822C7.94302 5.55029 7.14269 6.56011 6.68696 7.73517C6.23123 8.91023 6.14141 10.1956 6.42927 11.4226C6.71713 12.6497 7.36924 13.761 8.3 14.6108C6.59477 15.3447 5.11203 16.5133 4 17.9998C3.90151 18.1311 3.82985 18.2806 3.78911 18.4396C3.74837 18.5986 3.73935 18.7641 3.76256 18.9266C3.78578 19.0891 3.84077 19.2454 3.92441 19.3867C4.00804 19.5279 4.11868 19.6513 4.25 19.7498ZM27.5 6.24982C28.2417 6.24982 28.9667 6.46976 29.5834 6.88181C30.2001 7.29387 30.6807 7.87954 30.9645 8.56476C31.2484 9.24998 31.3226 10.004 31.1779 10.7314C31.0333 11.4588 30.6761 12.127 30.1517 12.6515C29.6272 13.1759 28.959 13.5331 28.2316 13.6778C27.5042 13.8225 26.7502 13.7482 26.0649 13.4644C25.3797 13.1805 24.794 12.6999 24.382 12.0832C23.9699 11.4665 23.75 10.7415 23.75 9.99982C23.75 9.00526 24.1451 8.05144 24.8483 7.34817C25.5516 6.64491 26.5054 6.24982 27.5 6.24982ZM12.5 6.24982C13.2417 6.24982 13.9667 6.46976 14.5834 6.88181C15.2001 7.29387 15.6807 7.87954 15.9645 8.56476C16.2484 9.24998 16.3226 10.004 16.1779 10.7314C16.0333 11.4588 15.6761 12.127 15.1517 12.6515C14.6272 13.1759 13.959 13.5331 13.2316 13.6778C12.5042 13.8225 11.7502 13.7482 11.0649 13.4644C10.3797 13.1805 9.79404 12.6999 9.38199 12.0832C8.96993 11.4665 8.75 10.7415 8.75 9.99982C8.75 9.00526 9.14509 8.05144 9.84835 7.34817C10.5516 6.64491 11.5054 6.24982 12.5 6.24982ZM31.7188 30.8608C32.6495 30.011 33.3016 28.8997 33.5895 27.6726C33.8773 26.4456 33.7875 25.1602 33.3318 23.9852C32.8761 22.8101 32.0757 21.8003 31.0358 21.0882C29.9959 20.3762 28.765 19.9951 27.5047 19.9951C26.2444 19.9951 25.0135 20.3762 23.9736 21.0882C22.9336 21.8003 22.1333 22.8101 21.6776 23.9852C21.2219 25.1602 21.132 26.4456 21.4199 27.6726C21.7078 28.8997 22.3599 30.011 23.2906 30.8608C22.0648 31.3908 20.9511 32.1497 20.0094 33.0967C19.0676 32.1497 17.954 31.3908 16.7281 30.8608C17.6589 30.011 18.311 28.8997 18.5989 27.6726C18.8867 26.4456 18.7969 25.1602 18.3412 23.9852C17.8854 22.8101 17.0851 21.8003 16.0452 21.0882C15.0053 20.3762 13.7744 19.9951 12.5141 19.9951C11.2537 19.9951 10.0228 20.3762 8.98293 21.0882C7.94302 21.8003 7.14269 22.8101 6.68696 23.9852C6.23123 25.1602 6.14141 26.4456 6.42927 27.6726C6.71713 28.8997 7.36924 30.011 8.3 30.8608C6.59477 31.5947 5.11203 32.7633 4 34.2498C3.90151 34.3811 3.82985 34.5306 3.78911 34.6896C3.74837 34.8486 3.73935 35.0141 3.76256 35.1766C3.78578 35.3391 3.84077 35.4954 3.92441 35.6367C4.00804 35.7779 4.11868 35.9013 4.25 35.9998C4.38132 36.0983 4.53076 36.17 4.68977 36.2107C4.84879 36.2515 5.01427 36.2605 5.17678 36.2373C5.33928 36.214 5.49562 36.159 5.63687 36.0754C5.77812 35.9918 5.90151 35.8811 6 35.7498C6.75682 34.7407 7.73819 33.9217 8.86639 33.3576C9.99459 32.7935 11.2386 32.4998 12.5 32.4998C13.7614 32.4998 15.0054 32.7935 16.1336 33.3576C17.2618 33.9217 18.2432 34.7407 19 35.7498C19.1991 36.0148 19.4954 36.1898 19.8236 36.2364C20.1517 36.283 20.485 36.1973 20.75 35.9983C20.8445 35.928 20.9282 35.8443 20.9984 35.7498C21.7553 34.7407 22.7366 33.9217 23.8648 33.3576C24.993 32.7935 26.2371 32.4998 27.4984 32.4998C28.7598 32.4998 30.0038 32.7935 31.132 33.3576C32.2602 33.9217 33.2416 34.7407 33.9984 35.7498C34.1976 36.015 34.4939 36.1903 34.8222 36.237C35.1505 36.2838 35.484 36.1982 35.7492 35.999C36.0144 35.7999 36.1897 35.5036 36.2364 35.1753C36.2832 34.8469 36.1976 34.5135 35.9984 34.2483C34.892 32.7649 33.4165 31.5971 31.7188 30.8608ZM12.5 22.4998C13.2417 22.4998 13.9667 22.7198 14.5834 23.1318C15.2001 23.5439 15.6807 24.1295 15.9645 24.8148C16.2484 25.5 16.3226 26.254 16.1779 26.9814C16.0333 27.7088 15.6761 28.377 15.1517 28.9015C14.6272 29.4259 13.959 29.7831 13.2316 29.9278C12.5042 30.0725 11.7502 29.9982 11.0649 29.7144C10.3797 29.4305 9.79404 28.9499 9.38199 28.3332C8.96993 27.7165 8.75 26.9915 8.75 26.2498C8.75 25.2553 9.14509 24.3014 9.84835 23.5982C10.5516 22.8949 11.5054 22.4998 12.5 22.4998ZM27.5 22.4998C28.2417 22.4998 28.9667 22.7198 29.5834 23.1318C30.2001 23.5439 30.6807 24.1295 30.9645 24.8148C31.2484 25.5 31.3226 26.254 31.1779 26.9814C31.0333 27.7088 30.6761 28.377 30.1517 28.9015C29.6272 29.4259 28.959 29.7831 28.2316 29.9278C27.5042 30.0725 26.7502 29.9982 26.0649 29.7144C25.3797 29.4305 24.794 28.9499 24.382 28.3332C23.9699 27.7165 23.75 26.9915 23.75 26.2498C23.75 25.2553 24.1451 24.3014 24.8483 23.5982C25.5516 22.8949 26.5054 22.4998 27.5 22.4998Z" fill="#020302"/>
+                          </svg>
+                        <p>Population <br>
+                            Growth</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M35 8.75V32.5H5V7.5H33.75C34.0815 7.5 34.3995 7.6317 34.6339 7.86612C34.8683 8.10054 35 8.41848 35 8.75Z" fill="#020302"/>
+                            <path d="M36.25 32.5C36.25 32.8315 36.1183 33.1495 35.8839 33.3839C35.6495 33.6183 35.3315 33.75 35 33.75H5C4.66848 33.75 4.35054 33.6183 4.11612 33.3839C3.8817 33.1495 3.75 32.8315 3.75 32.5V7.5C3.75 7.16848 3.8817 6.85054 4.11612 6.61612C4.35054 6.3817 4.66848 6.25 5 6.25C5.33152 6.25 5.64946 6.3817 5.88388 6.61612C6.1183 6.85054 6.25 7.16848 6.25 7.5V24.4828L14.1156 16.6156C14.2317 16.4994 14.3696 16.4072 14.5213 16.3443C14.6731 16.2814 14.8357 16.249 15 16.249C15.1643 16.249 15.3269 16.2814 15.4787 16.3443C15.6304 16.4072 15.7683 16.4994 15.8844 16.6156L20 20.7328L28.2328 12.5H25C24.6685 12.5 24.3505 12.3683 24.1161 12.1339C23.8817 11.8995 23.75 11.5815 23.75 11.25C23.75 10.9185 23.8817 10.6005 24.1161 10.3661C24.3505 10.1317 24.6685 10 25 10H31.25C31.5815 10 31.8995 10.1317 32.1339 10.3661C32.3683 10.6005 32.5 10.9185 32.5 11.25V17.5C32.5 17.8315 32.3683 18.1495 32.1339 18.3839C31.8995 18.6183 31.5815 18.75 31.25 18.75C30.9185 18.75 30.6005 18.6183 30.3661 18.3839C30.1317 18.1495 30 17.8315 30 17.5V14.2672L20.8844 23.3844C20.7683 23.5006 20.6304 23.5928 20.4787 23.6557C20.3269 23.7186 20.1643 23.751 20 23.751C19.8357 23.751 19.6731 23.7186 19.5213 23.6557C19.3696 23.5928 19.2317 23.5006 19.1156 23.3844L15 19.2672L6.25 28.0172V31.25H35C35.3315 31.25 35.6495 31.3817 35.8839 31.6161C36.1183 31.8505 36.25 32.1685 36.25 32.5Z" fill="#020302"/>
+                          </svg>
+                        <p>High Rental <br>
+                            Yields</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M21.25 4.99964V33.7496H6.25V13.3356C6.24987 13.1297 6.30057 12.927 6.39761 12.7455C6.49465 12.564 6.63502 12.4092 6.80625 12.295L19.3062 3.96214C19.4943 3.83666 19.7129 3.76454 19.9387 3.75346C20.1645 3.74237 20.3891 3.79275 20.5886 3.89921C20.7881 4.00567 20.9549 4.16424 21.0714 4.35802C21.1879 4.55181 21.2496 4.77355 21.25 4.99964Z" fill="#020302"/>
+                            <path d="M37.5 32.4997H35V14.9997C35 14.3366 34.7366 13.7007 34.2678 13.2319C33.7989 12.7631 33.163 12.4997 32.5 12.4997H22.5V4.99967C22.5003 4.54696 22.3777 4.10266 22.1452 3.7142C21.9127 3.32574 21.5791 3.00771 21.18 2.79403C20.7808 2.58036 20.3312 2.47907 19.879 2.50098C19.4268 2.52288 18.9891 2.66717 18.6125 2.91842L6.1125 11.2497C5.76959 11.4785 5.48858 11.7885 5.29448 12.1521C5.10038 12.5158 4.99922 12.9218 5 13.334V32.4997H2.5C2.16848 32.4997 1.85054 32.6314 1.61612 32.8658C1.3817 33.1002 1.25 33.4182 1.25 33.7497C1.25 34.0812 1.3817 34.3991 1.61612 34.6336C1.85054 34.868 2.16848 34.9997 2.5 34.9997H37.5C37.8315 34.9997 38.1495 34.868 38.3839 34.6336C38.6183 34.3991 38.75 34.0812 38.75 33.7497C38.75 33.4182 38.6183 33.1002 38.3839 32.8658C38.1495 32.6314 37.8315 32.4997 37.5 32.4997ZM32.5 14.9997V32.4997H22.5V14.9997H32.5ZM7.5 13.334L20 4.99967V32.4997H7.5V13.334ZM17.5 17.4997V19.9997C17.5 20.3312 17.3683 20.6491 17.1339 20.8836C16.8995 21.118 16.5815 21.2497 16.25 21.2497C15.9185 21.2497 15.6005 21.118 15.3661 20.8836C15.1317 20.6491 15 20.3312 15 19.9997V17.4997C15 17.1682 15.1317 16.8502 15.3661 16.6158C15.6005 16.3814 15.9185 16.2497 16.25 16.2497C16.5815 16.2497 16.8995 16.3814 17.1339 16.6158C17.3683 16.8502 17.5 17.1682 17.5 17.4997ZM12.5 17.4997V19.9997C12.5 20.3312 12.3683 20.6491 12.1339 20.8836C11.8995 21.118 11.5815 21.2497 11.25 21.2497C10.9185 21.2497 10.6005 21.118 10.3661 20.8836C10.1317 20.6491 10 20.3312 10 19.9997V17.4997C10 17.1682 10.1317 16.8502 10.3661 16.6158C10.6005 16.3814 10.9185 16.2497 11.25 16.2497C11.5815 16.2497 11.8995 16.3814 12.1339 16.6158C12.3683 16.8502 12.5 17.1682 12.5 17.4997ZM12.5 26.2497V28.7497C12.5 29.0812 12.3683 29.3991 12.1339 29.6336C11.8995 29.868 11.5815 29.9997 11.25 29.9997C10.9185 29.9997 10.6005 29.868 10.3661 29.6336C10.1317 29.3991 10 29.0812 10 28.7497V26.2497C10 25.9182 10.1317 25.6002 10.3661 25.3658C10.6005 25.1314 10.9185 24.9997 11.25 24.9997C11.5815 24.9997 11.8995 25.1314 12.1339 25.3658C12.3683 25.6002 12.5 25.9182 12.5 26.2497ZM17.5 26.2497V28.7497C17.5 29.0812 17.3683 29.3991 17.1339 29.6336C16.8995 29.868 16.5815 29.9997 16.25 29.9997C15.9185 29.9997 15.6005 29.868 15.3661 29.6336C15.1317 29.3991 15 29.0812 15 28.7497V26.2497C15 25.9182 15.1317 25.6002 15.3661 25.3658C15.6005 25.1314 15.9185 24.9997 16.25 24.9997C16.5815 24.9997 16.8995 25.1314 17.1339 25.3658C17.3683 25.6002 17.5 25.9182 17.5 26.2497Z" fill="#020302"/>
+                          </svg>
+                        <p>Robust <br>
+                            Infrastructure</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M32.5 8.75V20H7.5V8.75C7.5 7.75544 7.89509 6.80161 8.59835 6.09835C9.30161 5.39509 10.2554 5 11.25 5H28.75C29.7446 5 30.6984 5.39509 31.4017 6.09835C32.1049 6.80161 32.5 7.75544 32.5 8.75Z" fill="#020302"/>
+                            <path d="M28.75 3.75H11.25C9.92392 3.75 8.65215 4.27678 7.71447 5.21447C6.77678 6.15215 6.25 7.42392 6.25 8.75V28.75C6.25 30.0761 6.77678 31.3479 7.71447 32.2855C8.65215 33.2232 9.92392 33.75 11.25 33.75H12.5L10.25 36.75C10.1515 36.8813 10.0798 37.0308 10.0391 37.1898C9.99837 37.3488 9.98935 37.5143 10.0126 37.6768C10.0358 37.8393 10.0908 37.9956 10.1744 38.1369C10.258 38.2781 10.3687 38.4015 10.5 38.5C10.6313 38.5985 10.7808 38.6702 10.9398 38.7109C11.0988 38.7516 11.2643 38.7607 11.4268 38.7374C11.5893 38.7142 11.7456 38.6592 11.8869 38.5756C12.0281 38.492 12.1515 38.3813 12.25 38.25L15.625 33.75H24.375L27.75 38.25C27.9489 38.5152 28.245 38.6906 28.5732 38.7374C28.9014 38.7843 29.2348 38.6989 29.5 38.5C29.7652 38.3011 29.9406 38.005 29.9874 37.6768C30.0343 37.3486 29.9489 37.0152 29.75 36.75L27.5 33.75H28.75C30.0761 33.75 31.3479 33.2232 32.2855 32.2855C33.2232 31.3479 33.75 30.0761 33.75 28.75V8.75C33.75 7.42392 33.2232 6.15215 32.2855 5.21447C31.3479 4.27678 30.0761 3.75 28.75 3.75ZM11.25 6.25H28.75C29.413 6.25 30.0489 6.51339 30.5178 6.98223C30.9866 7.45107 31.25 8.08696 31.25 8.75V18.75H8.75V8.75C8.75 8.08696 9.01339 7.45107 9.48223 6.98223C9.95107 6.51339 10.587 6.25 11.25 6.25ZM28.75 31.25H11.25C10.587 31.25 9.95107 30.9866 9.48223 30.5178C9.01339 30.0489 8.75 29.413 8.75 28.75V21.25H31.25V28.75C31.25 29.413 30.9866 30.0489 30.5178 30.5178C30.0489 30.9866 29.413 31.25 28.75 31.25ZM15 26.875C15 27.2458 14.89 27.6084 14.684 27.9167C14.478 28.225 14.1851 28.4654 13.8425 28.6073C13.4999 28.7492 13.1229 28.7863 12.7592 28.714C12.3955 28.6416 12.0614 28.4631 11.7992 28.2008C11.537 27.9386 11.3584 27.6045 11.286 27.2408C11.2137 26.8771 11.2508 26.5001 11.3927 26.1575C11.5346 25.8149 11.775 25.522 12.0833 25.316C12.3916 25.11 12.7542 25 13.125 25C13.6223 25 14.0992 25.1975 14.4508 25.5492C14.8025 25.9008 15 26.3777 15 26.875ZM28.75 26.875C28.75 27.2458 28.64 27.6084 28.434 27.9167C28.228 28.225 27.9351 28.4654 27.5925 28.6073C27.2499 28.7492 26.8729 28.7863 26.5092 28.714C26.1455 28.6416 25.8114 28.4631 25.5492 28.2008C25.287 27.9386 25.1084 27.6045 25.036 27.2408C24.9637 26.8771 25.0008 26.5001 25.1427 26.1575C25.2846 25.8149 25.525 25.522 25.8333 25.316C26.1416 25.11 26.5042 25 26.875 25C27.3723 25 27.8492 25.1975 28.2008 25.5492C28.5525 25.9008 28.75 26.3777 28.75 26.875Z" fill="#020302"/>
+                          </svg>
+                        <p>$35 billion <br>
+                            Rail Loop</p>
+                    </div>
+                </div>
+                <div class="flexIcons">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M36.25 30H3.75L15 10H25L36.25 30Z" fill="black"/>
+                            <path d="M36.8627 31.0938C36.7191 31.1747 36.561 31.2264 36.3975 31.246C36.2339 31.2656 36.068 31.2527 35.9095 31.2079C35.7509 31.1632 35.6027 31.0876 35.4735 30.9854C35.3443 30.8832 35.2365 30.7565 35.1564 30.6125L24.2689 11.25H21.2502V12.5C21.2502 12.8315 21.1185 13.1495 20.884 13.3839C20.6496 13.6183 20.3317 13.75 20.0002 13.75C19.6686 13.75 19.3507 13.6183 19.1163 13.3839C18.8819 13.1495 18.7502 12.8315 18.7502 12.5V11.25H15.7314L4.84391 30.6125C4.68146 30.9026 4.41044 31.1162 4.09045 31.2065C3.77047 31.2968 3.42774 31.2562 3.13766 31.0938C2.84758 30.9313 2.63391 30.6603 2.54366 30.3403C2.4534 30.0203 2.49396 29.6776 2.65641 29.3875L12.8627 11.25H3.75016C3.41864 11.25 3.10069 11.1183 2.86627 10.8839C2.63185 10.6495 2.50016 10.3315 2.50016 10C2.50016 9.66848 2.63185 9.35054 2.86627 9.11612C3.10069 8.8817 3.41864 8.75 3.75016 8.75H36.2502C36.5817 8.75 36.8996 8.8817 37.134 9.11612C37.3685 9.35054 37.5002 9.66848 37.5002 10C37.5002 10.3315 37.3685 10.6495 37.134 10.8839C36.8996 11.1183 36.5817 11.25 36.2502 11.25H27.1377L37.3439 29.3875C37.4248 29.531 37.4766 29.6891 37.4962 29.8527C37.5157 30.0163 37.5028 30.1821 37.4581 30.3407C37.4134 30.4993 37.3377 30.6474 37.2355 30.7767C37.1334 30.9059 37.0066 31.0137 36.8627 31.0938ZM20.0002 17.5C19.6686 17.5 19.3507 17.6317 19.1163 17.8661C18.8819 18.1005 18.7502 18.4185 18.7502 18.75V21.25C18.7502 21.5815 18.8819 21.8995 19.1163 22.1339C19.3507 22.3683 19.6686 22.5 20.0002 22.5C20.3317 22.5 20.6496 22.3683 20.884 22.1339C21.1185 21.8995 21.2502 21.5815 21.2502 21.25V18.75C21.2502 18.4185 21.1185 18.1005 20.884 17.8661C20.6496 17.6317 20.3317 17.5 20.0002 17.5ZM20.0002 26.25C19.6686 26.25 19.3507 26.3817 19.1163 26.6161C18.8819 26.8505 18.7502 27.1685 18.7502 27.5V30C18.7502 30.3315 18.8819 30.6495 19.1163 30.8839C19.3507 31.1183 19.6686 31.25 20.0002 31.25C20.3317 31.25 20.6496 31.1183 20.884 30.8839C21.1185 30.6495 21.2502 30.3315 21.2502 30V27.5C21.2502 27.1685 21.1185 26.8505 20.884 26.6161C20.6496 26.3817 20.3317 26.25 20.0002 26.25Z" fill="black"/>
+                          </svg>
+                        <p>$16 billion <br>
+                            North East Link</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M35 12.5V32.5C35 32.8315 34.8683 33.1495 34.6339 33.3839C34.3995 33.6183 34.0815 33.75 33.75 33.75H6.25C5.91848 33.75 5.60054 33.6183 5.36612 33.3839C5.1317 33.1495 5 32.8315 5 32.5V12.5C5 12.1685 5.1317 11.8505 5.36612 11.6161C5.60054 11.3817 5.91848 11.25 6.25 11.25H33.75C34.0815 11.25 34.3995 11.3817 34.6339 11.6161C34.8683 11.8505 35 12.1685 35 12.5Z" fill="black"/>
+                            <path d="M33.75 10H27.5V8.75C27.5 7.75544 27.1049 6.80161 26.4017 6.09835C25.6984 5.39509 24.7446 5 23.75 5H16.25C15.2554 5 14.3016 5.39509 13.5983 6.09835C12.8951 6.80161 12.5 7.75544 12.5 8.75V10H6.25C5.58696 10 4.95107 10.2634 4.48223 10.7322C4.01339 11.2011 3.75 11.837 3.75 12.5V32.5C3.75 33.163 4.01339 33.7989 4.48223 34.2678C4.95107 34.7366 5.58696 35 6.25 35H33.75C34.413 35 35.0489 34.7366 35.5178 34.2678C35.9866 33.7989 36.25 33.163 36.25 32.5V12.5C36.25 11.837 35.9866 11.2011 35.5178 10.7322C35.0489 10.2634 34.413 10 33.75 10ZM15 8.75C15 8.41848 15.1317 8.10054 15.3661 7.86612C15.6005 7.6317 15.9185 7.5 16.25 7.5H23.75C24.0815 7.5 24.3995 7.6317 24.6339 7.86612C24.8683 8.10054 25 8.41848 25 8.75V10H15V8.75ZM33.75 32.5H6.25V12.5H33.75V32.5ZM25 22.5C25 22.8315 24.8683 23.1495 24.6339 23.3839C24.3995 23.6183 24.0815 23.75 23.75 23.75H21.25V26.25C21.25 26.5815 21.1183 26.8995 20.8839 27.1339C20.6495 27.3683 20.3315 27.5 20 27.5C19.6685 27.5 19.3505 27.3683 19.1161 27.1339C18.8817 26.8995 18.75 26.5815 18.75 26.25V23.75H16.25C15.9185 23.75 15.6005 23.6183 15.3661 23.3839C15.1317 23.1495 15 22.8315 15 22.5C15 22.1685 15.1317 21.8505 15.3661 21.6161C15.6005 21.3817 15.9185 21.25 16.25 21.25H18.75V18.75C18.75 18.4185 18.8817 18.1005 19.1161 17.8661C19.3505 17.6317 19.6685 17.5 20 17.5C20.3315 17.5 20.6495 17.6317 20.8839 17.8661C21.1183 18.1005 21.25 18.4185 21.25 18.75V21.25H23.75C24.0815 21.25 24.3995 21.3817 24.6339 21.6161C24.8683 21.8505 25 22.1685 25 22.5Z" fill="black"/>
+                          </svg>
+                        <p>$14 billion <br>
+                            Biomedical Precinct</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M35 18.4863V31.2504C35 31.5819 34.8683 31.8999 34.6339 32.1343C34.3995 32.3687 34.0815 32.5004 33.75 32.5004H6.25C5.91848 32.5004 5.60054 32.3687 5.36612 32.1343C5.1317 31.8999 5 31.5819 5 31.2504V18.4863C9.55863 21.1235 14.7335 22.5083 20 22.5004C25.2665 22.5088 30.4415 21.1239 35 18.4863Z" fill="black"/>
+                            <path d="M16.25 17.5C16.25 17.1685 16.3817 16.8505 16.6161 16.6161C16.8505 16.3817 17.1685 16.25 17.5 16.25H22.5C22.8315 16.25 23.1495 16.3817 23.3839 16.6161C23.6183 16.8505 23.75 17.1685 23.75 17.5C23.75 17.8315 23.6183 18.1495 23.3839 18.3839C23.1495 18.6183 22.8315 18.75 22.5 18.75H17.5C17.1685 18.75 16.8505 18.6183 16.6161 18.3839C16.3817 18.1495 16.25 17.8315 16.25 17.5ZM36.25 11.25V31.25C36.25 31.913 35.9866 32.5489 35.5178 33.0178C35.0489 33.4866 34.413 33.75 33.75 33.75H6.25C5.58696 33.75 4.95107 33.4866 4.48223 33.0178C4.01339 32.5489 3.75 31.913 3.75 31.25V11.25C3.75 10.587 4.01339 9.95107 4.48223 9.48223C4.95107 9.01339 5.58696 8.75 6.25 8.75H12.5V7.5C12.5 6.50544 12.8951 5.55161 13.5983 4.84835C14.3016 4.14509 15.2554 3.75 16.25 3.75H23.75C24.7446 3.75 25.6984 4.14509 26.4017 4.84835C27.1049 5.55161 27.5 6.50544 27.5 7.5V8.75H33.75C34.413 8.75 35.0489 9.01339 35.5178 9.48223C35.9866 9.95107 36.25 10.587 36.25 11.25ZM15 8.75H25V7.5C25 7.16848 24.8683 6.85054 24.6339 6.61612C24.3995 6.3817 24.0815 6.25 23.75 6.25H16.25C15.9185 6.25 15.6005 6.3817 15.3661 6.61612C15.1317 6.85054 15 7.16848 15 7.5V8.75ZM6.25 11.25V17.7531C10.4694 20.0487 15.1966 21.2509 20 21.25C24.8036 21.2509 29.5309 20.0481 33.75 17.7516V11.25H6.25ZM33.75 31.25V20.5672C29.4689 22.6615 24.7659 23.7501 20 23.75C15.2342 23.7509 10.5311 22.6628 6.25 20.5688V31.25H33.75Z" fill="black"/>
+                          </svg>
+                        <p>Major Job <br>
+                            Node</p>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path opacity="0.2" d="M37.5 16.25L8.75 26.25V6.25L37.5 16.25Z" fill="black"/>
+                            <path d="M37.9109 15.0695L9.16094 5.06948C8.9725 5.00389 8.77111 4.98435 8.57358 5.01251C8.37605 5.04067 8.18814 5.11571 8.02554 5.23135C7.86294 5.34698 7.73039 5.49986 7.63896 5.67721C7.54753 5.85455 7.49988 6.0512 7.5 6.25073V33.7507C7.5 34.0823 7.6317 34.4002 7.86612 34.6346C8.10054 34.869 8.41848 35.0007 8.75 35.0007C9.08152 35.0007 9.39946 34.869 9.63388 34.6346C9.8683 34.4002 10 34.0823 10 33.7507V27.1398L37.9109 17.432C38.1566 17.347 38.3696 17.1875 38.5203 16.9758C38.6711 16.7641 38.7521 16.5106 38.7521 16.2507C38.7521 15.9908 38.6711 15.7374 38.5203 15.5257C38.3696 15.3139 38.1566 15.1545 37.9109 15.0695ZM10 24.4929V8.00854L33.6953 16.2507L10 24.4929Z" fill="black"/>
+                          </svg>
+                        <p>86% High-density <br>
+                            Dwellings</p>
+                    </div>
+                </div>
+                <div>
+                    <ul style="margin-top: 60px;">
+                        <li>In the heart of a thriving metropolis, this investment property stands as a beacon of opportunity for the astute investor. Boasting a location in the resilient City of Melbourne, where high-density living is increasingly sought after, this property is a gateway to a lifestyle enriched by culture, education, and commerce.</li>
+                        <li>With the City serving as a hub for prestigious universities, hospitals, and major business ventures, the area is witnessing an impressive suite of infrastructure projects amounting to billions, including the monumental $1.7 billion Melbourne Arts Precinct Transformation.</li>
+                        <li>This property benefits from robust population growth and attractive rental yields, positioning it as a logical choice for those seeking to capitalise on Melbourne’s dynamic growth and the burgeoning demand for connected urban living. With a majority of apartments already snapped up off-the-plan in nearby developments and the return of international students fuelling the local economy, the time to invest in Melbourne’s future is now.</li>
+                        
+                    </ul>
+                </div>
+                <p style="margin-top: 60px; font-size: 50px; color: #020302;">Council insights</p>
+                <div>
+                    <ul style="margin: 60px 0 122px 0;">
+                        <li>In an investment landscape where discerning buyers seek growth, stability, and value, the City of Melbourne stands out as a beacon of opportunity. With its resilient economy and a shift towards high-density living, where 86% of homes are units or townhouses, this investment property in Melbourne’s heart is positioned for success.</li>
+                        <li>The area’s strong population growth, bolstered by substantial infrastructure investments totalling billions, including the $35 billion Suburban Rail Loop and the $14 billion Biomedical Precinct, underpins a robust rental market and promising capital growth prospects.</li>
+                        <li>With rising buyer demand for inner-city apartments and a remarkable recovery post-pandemic, underscored by a 2.9% increase in unit values over the past year, this property not only offers affordability but also stands as a smart choice for those looking to capitalise on Melbourne’s dynamic urban renaissance. Whether for the astute investor or the forward-thinking homeowner, this property signifies a shrewd acquisition in a city that’s not just thriving but truly transforming.</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+    <script src="./index.js"></script>
 </body>
+
+    
 </html>
