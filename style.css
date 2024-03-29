@@ -12,7 +12,7 @@ body{
 /* page no 1 */
 
 .hero-section{
-    background-color: black;
+    background-color: #19271F;
     color: white;
     padding: 107px 100px 0 100px;
 }
@@ -25,12 +25,20 @@ body{
     font-size: 24px;
 }
 .line{
-    width: calc(1103px + 200px);
+    width: 95%;
     height: 1px;
     background: linear-gradient(90deg, rgba(240, 232, 48, 0.00) 0%, #F0E830 70.39%, rgba(240, 232, 48, 0.00) 100%);
     border-radius: 100% 100%;
-    margin-top: 415px;
-    padding:0 0  0 87px;
+    margin-top: 414px;
+    padding-left:87px;
+}
+.bottomLine{
+    width: 95%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(240, 232, 48, 0.00) 0%, #F0E830 70.39%, rgba(240, 232, 48, 0.00) 100%);
+    border-radius: 100% 100%;
+    margin-top: 414px;
+    padding-left:87px;
 }
 .hero-text{
     margin-top: 60px;
@@ -54,8 +62,12 @@ body{
 .section .hero-div p{
     font-size: 11px;
 }
+.section .hero-div span{
+    font-size: 11px;
+}
 .section .header-text{
     margin-left: 53px;
+    font-size: 11px;
 }
 .summary-section{
     margin-top: 86px;
@@ -69,6 +81,7 @@ body{
     color:rgba(2, 3, 2, 0.70);
     text-align: justify;
     margin-top: 20px;
+    line-height: 28px;
 }
 .icons-section{
     margin-top: 70px;
@@ -77,7 +90,7 @@ body{
     align-items: center;
 }
 .icons-section2{
-    margin: 39px 0 79px 0;
+    margin: 77px 0 79px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -161,16 +174,18 @@ body{
     padding: 20px 0;
 }
 th , td{
-    padding: 20px 0;
+    
     text-align: left;
     border-top: 1px solid gray;
     padding-left: 20px;
 }
 th{
+    padding: 20px 0;
     font-size: 12px;
     text-transform: uppercase;
 }
 td{
+    padding: 23px 0 18px 0;
     font-size: 14px;
 }
 td:first-child{
@@ -204,19 +219,86 @@ ul li{
     margin-top: 100px;
     padding-bottom: 349px;
 }
+.chartContent2{
+    margin-top: 100px;
+    padding-bottom: 339px;
+}
 .growthImg{
     margin-top: 101px;
     margin-bottom: 487px;
+}
+.growthImg2{
+    margin-top: 101px;
+    margin-bottom: 517px;
+}
+.growthImg4{
+    margin-top: 101px;
+    margin-bottom: 427px;
 }
 
 /* icons section */
 
 .flexIcons{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
     margin-top: 40px;
+}
+.flexIcons div{
+    display: flex;
+    flex-direction: column;
+}
+.flexIcons p {
+    font-size: 18px;
 }
 .flexIcons svg{
     text-align: center;
+}
+
+/* table section */
+
+.flexTable{
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    margin-top: 30px;
+}
+.flexTable div{
+    display: flex;
+    flex-direction: column;
+}
+.flexTable:first-child{
+    margin-top: 60px;
+}
+.flexTable:last-child{
+    margin-top: 20px;
+    padding-bottom: 100px;
+}
+.flexTable p{
+    font-size: 18px;
+    color:rgba(2, 3, 2, 0.70)
+}
+
+
+hr{
+    margin-top: 50px;
+}
+
+/* image gallery section */
+
+.gallery{
+    width: 100%;
+    margin-top: 0px;
+}
+.gallery img{
+    width: 50%;
+    height: 424px;
+}
+canvas{
+    width: 100%;
+}
+.highcharts-credits{
+    display: none;
+}
+.highcharts-exporting-group{
+    display: none;
 }
